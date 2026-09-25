@@ -1,4 +1,4 @@
-# 🏆 BRACKETZZ V2 - Sports & Tournament Manager
+# 🏆 SUPERBRACKETZ - Sports & Tournament Manager
 
 Aplikasi manajemen turnamen modern dan generator bagan kompetisi dengan dukungan Cloud Database Supabase, sistem Liga 3 Putaran, statistik rekor kemenangan pemain, serta leaderboard podium interaktif.
 

@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sports Bracket Generator</title>
+    <title>SuperBracketz - Sports & Tournament Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Dancing+Script:wght@600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Righteous&family=Inter:wght@400;600;700&family=Dancing+Script:wght@600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/html2pdf.bundle.min.js"></script>
@@ -17,14 +19,14 @@
 
     <div class="container">
         <header>
-            <div class="logo-animate" style="display: flex; flex-direction: column;">
-                <h1 class="text-gradient" style="line-height: 1;">BRACKETZZ V2</h1>
-                <span
-                    style="font-family: 'Dancing Script', cursive; font-size: 1.2rem; color: var(--text-main); font-weight: normal; margin-top: 0.2rem;">By
-                    Sahhalip</span>
+            <div class="logo-animate brand-logo-wrap">
+                <div class="brand-tag">⚡ ARENA & TOURNAMENTS</div>
+                <h1 class="brand-title">
+                    <span class="brand-super">SUPER</span><span class="brand-bracketz">BRACKETZ</span>
+                </h1>
+                <span class="brand-author">By Sahhalip</span>
             </div>
             <div id="nav-buttons" style="display: none; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                <span id="db-status-badge" style="font-size: 0.75rem; padding: 0.25rem 0.6rem; border-radius: 999px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fbbf24;">⚡ Cek Database...</span>
                 <button onclick="showSection('dashboard-section')">🎛️ Menu</button>
                 <button onclick="showSection('players-section')">👥 Pemain</button>
                 <button onclick="showLeaderboardSection()">🏆 Peringkat</button>
@@ -189,19 +191,25 @@
                 <!-- Dynamically generated podium -->
             </div>
 
+            <!-- Mobile Scroll Hint -->
+            <div class="lb-scroll-hint">
+                <span class="scroll-hand">👉</span>
+                <span>Geser tabel ke samping untuk melihat statistik lengkap</span>
+            </div>
+
             <!-- Full Leaderboard Table -->
             <div class="lb-table-wrap">
                 <table class="lb-table">
                     <thead>
                         <tr>
-                            <th style="width: 60px;">Rank</th>
-                            <th>Pemain</th>
-                            <th style="text-align: center;">🏆 Trofi</th>
-                            <th style="text-align: center;">Tanding</th>
-                            <th style="text-align: center;">M - S - K</th>
-                            <th style="text-align: center;">Win Rate</th>
-                            <th style="text-align: center;">Form</th>
-                            <th style="text-align: right;">Aksi</th>
+                            <th style="width: 55px; text-align: center;">Rank</th>
+                            <th style="min-width: 160px;">Pemain</th>
+                            <th style="text-align: center; min-width: 80px;">🏆 Trofi</th>
+                            <th style="text-align: center; min-width: 75px;">Tanding</th>
+                            <th style="text-align: center; min-width: 95px;">M - S - K</th>
+                            <th style="text-align: center; min-width: 85px;">Win Rate</th>
+                            <th style="text-align: center; min-width: 110px;">Form</th>
+                            <th style="text-align: right; min-width: 90px;">Aksi</th>
                         </tr>
                     </thead>
                     <tbody id="leaderboard-tbody">
@@ -211,7 +219,23 @@
             </div>
         </section>
 
-        <!-- Player Stats & Match History Modal -->
+        <!-- App Footer -->
+        <footer class="app-footer">
+            <div class="footer-inner glass">
+                <div class="footer-left">
+                    <div class="footer-brand">
+                        <span class="brand-super" style="font-family: 'Righteous', sans-serif;">SUPER</span><span class="brand-bracketz" style="font-family: 'Righteous', sans-serif;">BRACKETZ</span>
+                    </div>
+                    <p class="footer-desc">Sports & Tournament Management Platform • By Sahhalip</p>
+                </div>
+                <div class="footer-right">
+                    <span id="db-status-badge" class="db-status-badge">⚡ Cek Database...</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Player Stats & Match History Modal -->
         <div id="player-stats-modal">
             <div class="player-stats-dialog">
                 <div class="stats-dialog-header">
