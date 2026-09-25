@@ -141,14 +141,28 @@ document.addEventListener('DOMContentLoaded', () => {
 // --- Auth ---
 function checkAuth() {
     updateDbStatusBadge();
+    const navButtons = document.getElementById('nav-buttons');
+    const footerLogoutBtn = document.getElementById('footer-logout-btn');
     if (appState.isLoggedIn) {
         showSection('dashboard-section');
-        document.getElementById('nav-buttons').style.display = 'flex';
+        if (navButtons) {
+            navButtons.classList.remove('hidden');
+            navButtons.style.display = 'flex';
+        }
+        if (footerLogoutBtn) {
+            footerLogoutBtn.style.display = 'inline-flex';
+        }
         loadTournaments();
         renderPlayers();
     } else {
         showSection('login-section');
-        document.getElementById('nav-buttons').style.display = 'none';
+        if (navButtons) {
+            navButtons.classList.add('hidden');
+            navButtons.style.display = 'none';
+        }
+        if (footerLogoutBtn) {
+            footerLogoutBtn.style.display = 'none';
+        }
     }
 }
 
