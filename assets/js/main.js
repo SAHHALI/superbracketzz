@@ -51,13 +51,13 @@ function updateDbStatusBadge() {
     const badge = document.getElementById('db-status-badge');
     if (!badge) return;
     if (window.SupabaseService && window.SupabaseService.isReady()) {
-        badge.innerHTML = '🟢 Supabase Cloud';
-        badge.style.borderColor = '#10b981';
+        badge.innerHTML = '<span class="status-pulse-dot online"></span> Supabase Cloud Terhubung';
+        badge.style.borderColor = 'rgba(16, 185, 129, 0.4)';
         badge.style.color = '#34d399';
         badge.style.background = 'rgba(16, 185, 129, 0.15)';
-        badge.title = 'Terhubung ke database Supabase';
+        badge.title = 'Terhubung ke database Supabase Cloud (Live Sync Aktif)';
     } else {
-        badge.innerHTML = '💾 Mode Lokal';
+        badge.innerHTML = '<span class="status-pulse-dot local"></span> Mode Penyimpanan Lokal';
         badge.style.borderColor = 'rgba(255,255,255,0.2)';
         badge.style.color = '#94a3b8';
         badge.style.background = 'rgba(255,255,255,0.08)';
