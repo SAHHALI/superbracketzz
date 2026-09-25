@@ -5,9 +5,12 @@
 // ========================================================
 
 const SUPABASE_CONFIG = {
-    url: 'YOUR_SUPABASE_URL',          // Contoh: 'https://xyzcompany.supabase.co'
-    anonKey: 'YOUR_SUPABASE_ANON_KEY'  // Contoh: 'eyJhbGciOiJIUzI1NiIsIn...'
+    url: 'https://dxqupvdmrtrolgkendmg.supabase.co',          // Contoh: 'https://xyzcompany.supabase.co'
+    anonKey: 'sb_publishable_qrI_L8CK8uTPHcUOK6U-Gg_nqwHrnxp'  // Contoh: 'eyJhbGciOiJIUzI1NiIsIn...'
 };
+
+//NEXT_PUBLIC_SUPABASE_URL=https://dxqupvdmrtrolgkendmg.supabase.co
+//NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_qrI_L8CK8uTPHcUOK6U-Gg_nqwHrnxp
 
 let dbClient = null;
 
