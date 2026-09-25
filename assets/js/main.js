@@ -43,6 +43,7 @@ async function loadState() {
             console.warn('Gagal sinkronisasi data dari Supabase:', err);
         }
     }
+    updateDbStatusBadge();
 }
 
 // Update tampilan badge status database di header
@@ -139,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // --- Auth ---
 function checkAuth() {
+    updateDbStatusBadge();
     if (appState.isLoggedIn) {
         showSection('dashboard-section');
         document.getElementById('nav-buttons').style.display = 'flex';

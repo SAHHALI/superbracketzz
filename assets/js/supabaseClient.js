@@ -5,12 +5,9 @@
 // ========================================================
 
 const SUPABASE_CONFIG = {
-    url: 'https://dxqupvdmrtrolgkendmg.supabase.co',          // Contoh: 'https://xyzcompany.supabase.co'
-    anonKey: 'sb_publishable_qrI_L8CK8uTPHcUOK6U-Gg_nqwHrnxp'  // Contoh: 'eyJhbGciOiJIUzI1NiIsIn...'
+    url: 'https://dxqupvdmrtrolgkendmg.supabase.co',
+    anonKey: 'sb_publishable_qrI_L8CK8uTPHcUOK6U-Gg_nqwHrnxp'
 };
-
-//NEXT_PUBLIC_SUPABASE_URL=https://dxqupvdmrtrolgkendmg.supabase.co
-//NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_qrI_L8CK8uTPHcUOK6U-Gg_nqwHrnxp
 
 let dbClient = null;
 
@@ -23,20 +20,30 @@ function isSupabaseConfigured() {
 }
 
 // Inisialisasi client
-if (window.supabase && isSupabaseConfigured()) {
-    try {
-        dbClient = window.supabase.createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.anonKey);
-        console.log('✅ Supabase Client berhasil terhubung!');
-    } catch (e) {
-        console.error('❌ Gagal menginisialisasi Supabase:', e);
+function initSupabase() {
+    if (dbClient) return true;
+    if (window.supabase && isSupabaseConfigured()) {
+        try {
+            dbClient = window.supabase.createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.anonKey);
+            console.log('✅ Supabase Client berhasil terhubung!');
+            return true;
+        } catch (e) {
+            console.error('❌ Gagal menginisialisasi Supabase:', e);
+            return false;
+        }
     }
-} else {
-    console.info('ℹ️ Supabase belum dikonfigurasi. Menggunakan penyimpanan lokal (sessionStorage). Silakan lengkapi SUPABASE_CONFIG di assets/js/supabaseClient.js.');
+    return false;
 }
+
+// Coba inisialisasi langsung
+initSupabase();
 
 // Helper Service untuk Komunikasi dengan Database
 const SupabaseService = {
     isReady() {
+        if (!dbClient) {
+            initSupabase();
+        }
         return dbClient !== null;
     },
 
@@ -183,3 +190,7 @@ const SupabaseService = {
         return data;
     }
 };
+
+// Pastikan SupabaseService tersedia secara global di window
+window.SupabaseService = SupabaseService;
+window.isSupabaseConfigured = isSupabaseConfigured;
